@@ -13,13 +13,14 @@ public class EXP02_S04 {
     int edad = 0;
     int tipoPublico = 0;
     int numeroEntradas = 0;
+    int opcionMenu = 0;
     String ubicacionSalida = "";
     String descuentoSalida;
     double descuento, precioEntradaPagar;
     double totalAcumulado = 0;
       
 
-    int opcionMenu;
+    
     System.out.println(" -------------------------------------------");
     System.out.println("    SISTEMA GESTIÓN ENTRADAS TEATRO MORO    ");
     System.out.println(" -------------------------------------------");
@@ -121,18 +122,25 @@ public class EXP02_S04 {
       System.out.println("Resumen entrada: N˚" + numeroEntradas );
       System.out.println("Ubicación: " + ubicacionSalida);
       System.out.println("Precio entrada: $" + precioEntrada);
-      System.out.println("Descuento: " + descuentoSalida);
+      System.out.println("Precio con descuento: " + descuentoSalida);
       System.out.println("Total a pagar por la entrada: $" + precioEntradaPagar + "\n");
 
       totalAcumulado += precioEntradaPagar;
 
-      System.out.println("[1]Comprar otra entrada [2]Salir y pagar entradas");
-      opcionMenu = inputUsuario.nextInt();
+      do {
+        System.out.println("[1]Comprar otra entrada [2]Salir y pagar entradas");
+        opcionMenu = inputUsuario.nextInt();
+        if(opcionMenu != 1 && opcionMenu != 2){
+          System.out.println("Ingresaste un valor incorrecto.");
+        }
+      }
+      while (opcionMenu != 1 && opcionMenu != 2);
+      
 
     }
     if (numeroEntradas == 0){
       System.out.println("-------------------------------------------------------------------");
-      System.out.println("                 No has comprado ninguna entrada                   ");
+      System.out.println("                   Has salido de la aplicación                     ");
       System.out.println("-------------------------------------------------------------------");
     } else {
       System.out.println("-------------------------------------------------------------------");
